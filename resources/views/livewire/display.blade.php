@@ -1,12 +1,8 @@
 <div>
-    <select>
-        @foreach($symbols as $symbol)
+    <select wire:model="selected">
+        @foreach($list as $symbol)
             <option>{{ $symbol }}</option>
         @endforeach
     </select>
-    <select>
-        @foreach($list as $item)
-            <option>{{ $item }}</option>
-        @endforeach
-    </select>
+    <div>Crypto: {{ $selected }}</div>
 </div>
