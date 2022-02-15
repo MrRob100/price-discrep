@@ -6,12 +6,7 @@ use Livewire\Component;
 
 class Display extends Component
 {
-    public $count = 0;
-
-    public function increment()
-    {
-        $this->count++;
-    }
+    public $list = ['OTH', 'COI'];
 
     public function render()
     {
