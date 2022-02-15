@@ -5,7 +5,7 @@
         @livewireStyles
     </head>
     <body>
-        Hi World
+        <livewire:display />
         @livewireScripts
     </body>
 </html>

@@ -1,3 +1,9 @@
 <div>
-    {{-- Do your work, then step back. --}}
+    <button wire:click="increment">+</button>
+    <h1>{{ $count }}</h1>
+    <select>
+        @foreach($symbols as $symbol)
+            <option>{{ $symbol }}</option>
+        @endforeach
+    </select>
 </div>
