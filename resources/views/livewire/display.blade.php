@@ -9,7 +9,7 @@
         <ul class="flex flex-col sm:flex-row sm:space-x-8 sm:items-center">
             @foreach($exchanges as $exchange)
             <li>
-                <input type="checkbox" id="{{ $exchange }}" value="{{ $exchange }}" wire:model="types"/>
+                <input type="checkbox" id="{{ $exchange }}" value="{{ $exchange }}" wire:model="exchangesSelected"/>
                 <label for="{{ $exchange }}">{{ $exchange }}</label>
             </li>
             @endforeach
