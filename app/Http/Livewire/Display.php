@@ -46,7 +46,7 @@ class Display extends Component
             $index = $prices->search($data);
             return $multiLineChartModel->addSeriesPoint($data['exchange'], $index, $data['price']);
         }, LivewireCharts::multiLineChartModel()
-            ->setTitle("Price discrepencies for $this->selected")
+            ->setTitle("Price discrepancies for $this->selected")
             ->setAnimated($this->firstRun)
             ->withOnPointClickEvent('onPointClick')
             ->setSmoothCurve()
