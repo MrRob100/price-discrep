@@ -36,12 +36,18 @@ class Display extends Component
 
     public function render()
     {
-        $prices = collect([
-            ['exchange' => 'binance', 'day' => 'monday', 'price' => 75],
-            ['exchange' => 'binance', 'day' => 'tuesday', 'price' => 85],
-            ['exchange' => 'kucoin', 'day' => 'monday', 'price' => 76],
-            ['exchange' => 'kucoin', 'day' => 'tuesday', 'price' => 88],
+        $data = collect([
+            ['exchange' => 'binance', 'day' => 'monday', 'crypto' => 'BTC', 'price' => 75],
+            ['exchange' => 'binance', 'day' => 'tuesday', 'crypto' => 'BTC', 'price' => 85],
+            ['exchange' => 'kucoin', 'day' => 'monday', 'crypto' => 'BTC', 'price' => 76],
+            ['exchange' => 'kucoin', 'day' => 'tuesday', 'crypto' => 'BTC', 'price' => 88],
+            ['exchange' => 'binance', 'day' => 'monday', 'crypto' => 'ETH', 'price' => 25],
+            ['exchange' => 'binance', 'day' => 'tuesday', 'crypto' => 'ETH', 'price' => 22],
+            ['exchange' => 'kucoin', 'day' => 'monday', 'crypto' => 'ETH', 'price' => 21],
+            ['exchange' => 'kucoin', 'day' => 'tuesday', 'crypto' => 'ETH', 'price' => 18],
         ]);
+
+        $prices = $data->where('crypto', $this->selected);
 
         $multiLineChartModel = $prices->reduce(function ($multiLineChartModel, $data) use ($prices) {
             $index = $prices->search($data);
