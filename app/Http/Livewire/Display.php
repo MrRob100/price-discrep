@@ -26,19 +26,9 @@ class Display extends Component
         $this->exchangesSelected = $this->exchanges;
     }
 
-//    public function hydrateSelected($value)
-//    {
-//        dump($value);
-//    }
-
-//    public function updatedSelected($value)
-//    {
-//        //do stuff
-//    }
-
     public function render()
     {
-        $data = collect([
+        $raw = collect([
             ['exchange' => 'Binance', 'day' => 'monday', 'crypto' => 'BTC', 'price' => 75],
             ['exchange' => 'Binance', 'day' => 'tuesday', 'crypto' => 'BTC', 'price' => 85],
             ['exchange' => 'Kucoin', 'day' => 'monday', 'crypto' => 'BTC', 'price' => 76],
@@ -49,7 +39,7 @@ class Display extends Component
             ['exchange' => 'Kucoin', 'day' => 'tuesday', 'crypto' => 'ETH', 'price' => 18],
         ]);
 
-        $prices = $data->where('crypto', $this->selected)
+        $prices = $raw->where('crypto', $this->selected)
             ->whereIn('exchange', $this->exchangesSelected);
 
         $multiLineChartModel = $prices->reduce(function ($multiLineChartModel, $data) use ($prices) {
@@ -64,7 +54,7 @@ class Display extends Component
             ->setXAxisVisible(true)
             ->setDataLabelsEnabled($this->showDataLabels)
             ->sparklined()
-            ->setColors(['#b01a1b', '#d41b2c', '#ec3c3b', '#f66665'])
+            ->setColors(['#b01a1b', '#d41b2c', '#f66665'])
         );
 
         $this->firstRun = false;

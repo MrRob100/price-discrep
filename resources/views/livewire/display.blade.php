@@ -15,8 +15,8 @@
             @endforeach
         </ul>
         <div>
-            <input type="checkbox" value="other" wire:model="showDataLabels"/>
-            <span>Show data labels</span>
+            <input type="checkbox" id="showDataLabels" value="other" wire:model="showDataLabels"/>
+            <label for="showDataLabels">Show data labels</label>
         </div>
     </div>
 
